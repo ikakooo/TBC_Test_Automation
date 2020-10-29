@@ -1,4 +1,5 @@
 import TestingDriverConstants.chromeDriverPath
+import org.junit.Assert
 import org.openqa.selenium.By
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.interactions.Actions
@@ -22,10 +23,9 @@ fun main() {
     actionBuilder.moveToElement(colorChange).build().perform()
     ////////ჰოუმ ბათონის მაუსის შეხებაზე დეთექშენ ჩექი ///////////////////////////////////////////////////////////////////
     println(
-        "Color on mouse touch isChanged? -> ${
-            !color.toCharArray().contentEquals(colorChange.getCssValue("color").toCharArray())
-        }"
+        "Color on mouse touch isChanged? -> ${color != colorChange.getCssValue("color")}"
     )
+    Assert.assertEquals(color, colorChange.getCssValue("color"))
     Thread.sleep(2000)
 
     //////////////////////////////ფოტოს კორდინატების ცვლილების შემოწმება///////////////////////////////////////
@@ -37,8 +37,7 @@ fun main() {
     clickHereButton.click()
     val imgChanged = sDriver.findElement(By.xpath("//img[@src='/img/avatar.jpg']"))
     println(
-        "IMG location  isChanged? -> ${
-            !imgLocation.toCharArray().contentEquals(imgChanged.getCssValue("left").toCharArray())
-        }"
+        "IMG location  isChanged? -> ${imgLocation!=imgChanged.getCssValue("left")}"
     )
+    Assert.assertEquals(imgLocation, imgChanged.getCssValue("left"))
 }
