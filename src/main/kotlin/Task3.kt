@@ -1,6 +1,10 @@
 import TestingDriverConstants.chromeDriverPath
 import com.google.gson.annotations.Until
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.core.StringEndsWith.endsWith
+
 import org.junit.Assert
+
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
@@ -20,6 +24,8 @@ fun main() {
       Assert.assertEquals(stingCharArray[stingSize-1], '0')
 //        println(it)
 //        println(stingCharArray[stingSize-1])
+        /////// ეს შედარების ასერტი უფრო მარტივად და გასაგებად მუშაობს
+        assertThat(trElements[it], endsWith("0"))
         println(
             "Last Char is zero? -> ${
                 stingCharArray[stingSize-1] == '0'
