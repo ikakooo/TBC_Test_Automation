@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver
 fun main() {
 
     val websitePath = "http://the-internet.herokuapp.com/upload"
-    val fileForUploadPath = "C:\\Users\\ikakooo\\Desktop\\icons\\ic_person.png"
+    val fileForUploadPath = "C:\\Users\\ikakooo\\Desktop\\photos\\IMG_20200718_112124.jpg"
 
     System.setProperty("webdriver.chrome.driver", chromeDriverPath)
     val driver = ChromeDriver()
